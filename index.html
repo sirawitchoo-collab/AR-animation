@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<title>sirawit</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+
+
+<header>
+
+<div class="main-title">sirawit</div>
+
+<div class="sub-title">sirawit character (AR)</div>
+
+</header>
+
+
+
+<!-- snowman-->
+
+<div class="ar-section">
+
+<div class="head-title">snowman</div>
+
+<div class="sub-title">cute snowman with one arm.</div>
+
+<model-viewer
+
+    id="model1"
+
+    src="snowman.glb"
+
+    ios-src="snowman.usdz"
+
+    alt="snowman 3D Model"
+
+    ar
+
+    ar-modes="scene-viewer webxr quick-look"
+
+    camera-controls
+
+    auto-rotate
+
+    shadow-intensity="1"
+
+    environment-image="neutral"
+
+    style="width:100%; height:400px;">
+
+</model-viewer>
+
+<button class="ar-button" onclick="triggerAR('model1')">Play AR</button>
+
+</div>
+
+
+
+<!-- DONUT-->
+
+<div class="ar-section">
+
+<div class="head-title">DONUT</div>
+
+<div class="sub-title"> donut on plate </div>
+
+<model-viewer
+
+    id="model2"
+
+    src="DONUT.glb"
+
+    ios-src="DONUT.usdz"
+
+    alt="DONUT 3D Model"
+
+    ar
+
+    ar-modes="scene-viewer webxr quick-look"
+
+    camera-controls
+
+    auto-rotate
+
+    shadow-intensity="1"
+
+    environment-image="neutral"
+
+    style="width:100%; height:400px;">
+
+</model-viewer>
+
+<button class="ar-button" onclick="triggerAR('model2')">Play AR</button>
+
+</div>
+
+
+<!-- box room-->
+
+<div class="ar-section">
+
+<div class="head-title">box room</div>
+
+<div class="sub-title"> small room </div>
+
+<model-viewer
+
+    id="model3"
+
+    src="box room.glb"
+
+    ios-src="box room.usdz"
+
+    alt="box room 3D Model"
+
+    ar
+
+    ar-modes="scene-viewer webxr quick-look"
+
+    camera-controls
+
+    auto-rotate
+
+    shadow-intensity="1"
+
+    environment-image="neutral"
+
+    style="width:100%; height:400px;">
+
+</model-viewer>
+
+<button class="ar-button" onclick="triggerAR('model3')">Play AR</button>
+
+</div>
+
+<footer>
+
+<div class="footer-link"><strong>youtube:</strong> <a href="https://www.youtube.com/@user-xg9uz5yp8e" target="_blank">youtube.com</a></div>
+
+</footer>
+
+
+
+<!--  โหลด model-viewer หลังสุดเพื่อให้โหลดหน้าเว็บเร็วขึ้น -->
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+
+
+<!--  Script ปุ่ม Play AR พร้อม catch error -->
+
+<script>
+
+   function triggerAR(id) {
+
+     const viewer = document.getElementById(id);
+
+     if (viewer && viewer.activateAR) {
+
+       viewer.activateAR().catch((error) => {
+
+         alert("AR ไม่พร้อมบนอุปกรณ์นี้ หรือถูกบล็อกโดย browser\n(แนะนำให้กดปุ่ม AR บนมุมขวาของโมเดลแทน)");
+
+         console.warn("activateAR failed:", error);
+
+       });
+
+     }
+
+   }
+
+</script>
+
+
+
+</body>
+
+</html>
